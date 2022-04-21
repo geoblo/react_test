@@ -1,60 +1,41 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            border: 0;
-        }
+  </head>
+  <body>
+    <script>
+      //객체
+      const student = {
+        name: '영희',
+      };
 
-        #root p {
-            color: white;
-            font-size: 20px;
-            background-color: green;
-            text-align: center;
-            width: 200px;
-        }
+      const class1 = {
+        ...student,
+        subject: 'kor',
+      };
 
-        #btn_plus {
-            background-color: red;
-            border: 2px solid #000;
-            font-size: 15px;
-            width: 200px;
-        }
-    </style>
-</head>
-<body>
-    <div id="root"></div>
+      //배열
+      const array = [
+        { id: 1, value: true },
+        { id: 2, value: true },
+        { id: 3, value: false },
+      ];
 
-<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<script type="text/babel">
-    const title = "주제";
-    const num = 2;
-    const flag = true;
-    const style = {
-        color: 'red',
-        fontSize: '48px',
-    }
+      let nextArray = array.concat({ id: 4 });
 
-    ReactDOM.render(
-        <div style={style}>
-            <h1 className="green">{title}</h1>
-            <ul>
-                <li>react{ num == 2 ? "ㅎ" : "ㅋ" }</li>
-                <li>vue{ flag && ' hello' }</li>
-                <li>angular { '' || ' hi' }</li>
-            </ul>
-            <input />
-        </div>,
-        document.querySelector('#root')
-    )
-</script>
-</body>
+      console.log(nextArray);
+
+      const a = nextArray.filter((item) => {
+        return item.id !== 2;
+      });
+      console.log(a);
+
+      const b = nextArray.map((item) => (item.id === 1 ? { ...item, value: false } : item));
+      console.log(b);
+    </script>
+  </body>
 </html>
