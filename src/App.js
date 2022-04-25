@@ -1,8 +1,8 @@
 import React from 'react';
-import Average from './components/22-04-25/Average';
+import InfoReducer from './components/22-04-25/InfoReducer';
 
 function App(props) {
-  return <Average />;
+  return <InfoReducer />;
 }
 
 export default App;

@@ -1,22 +1,12 @@
-import React, { useReducer } from 'react';
-
-function reducer(state, action) {
-  console.log(state);
-  console.log(action.name, action.value);
-  return {
-    ...state, // 데이터 불변성
-    [action.name]: action.value,
-  };
-}
+import React from 'react';
+import useInputs from './useInputs';
 
 function InfoReducer(props) {
-  const [state, dispatch] = useReducer(reducer, { name: '', nickname: '' });
+  const [state, onChange] = useInputs({
+    name: '',
+    nickname: '',
+  });
   const { name, nickname } = state;
-
-  const onChange = (e) => {
-    console.log(e.target);
-    dispatch(e.target);
-  };
 
   return (
     <div>
