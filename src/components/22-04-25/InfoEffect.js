@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-function Info(props) {
+function InfoEffect(props) {
   const [name, setName] = useState('');
   const [nickname, setNickname] = useState('');
+  useEffect(() => {
+    console.log('effect');
+    console.log(name);
+
+    //클린업 실행
+    return () => {
+      console.log('cleanup');
+      console.log(name);
+    };
+  }, [name]);
 
   const onChangeName = (e) => {
     setName(e.target.value);
@@ -28,4 +38,4 @@ function Info(props) {
   );
 }
 
-export default Info;
+export default InfoEffect;

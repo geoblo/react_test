@@ -1,8 +1,8 @@
 import React from 'react';
-import Info from './components/22-04-25/Info';
+import InfoReducer from './components/22-04-25/InfoReducer';
 
 function App(props) {
-  return <Info />;
+  return <InfoReducer />;
 }
 
 export default App;
